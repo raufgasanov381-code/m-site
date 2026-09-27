@@ -87,13 +87,21 @@
   nav button{
     background:none;border:none;color:var(--green);font-family:inherit;font-size:13.5px;
     cursor:pointer;padding:4px 0;border-bottom:2px solid transparent;display:flex;align-items:center;gap:5px;
+    white-space:nowrap;
   }
   nav button.active{color:var(--text);border-color:var(--green);}
-  @media(max-width:600px){
-    nav{gap:12px;}
-    nav button{font-size:11.5px;gap:3px;}
-  }
   nav button:hover{color:var(--text);}
+  @media(max-width:640px){
+    .headrow{padding:14px 16px;gap:10px;}
+    .logo{font-size:16px;}
+    .moon-mark{width:22px;height:22px;font-size:11px;}
+    nav{
+      flex-wrap:nowrap;overflow-x:auto;width:100%;gap:16px;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;
+    }
+    nav::-webkit-scrollbar{display:none;}
+    nav button{font-size:12px;gap:3px;flex:none;}
+  }
 
   .hero{padding:70px 32px 40px;text-align:center;}
   .pill{
@@ -142,6 +150,7 @@
   .page > .wrap > .lede{color:var(--muted);font-size:13.5px;margin-bottom:34px;}
 
   .grid{display:grid;grid-template-columns:1fr;gap:16px;}
+
   @media(max-width:760px){.hero h1{font-size:46px;}}
 
   .card{border:1px solid var(--line);border-top:3px solid var(--green);border-radius:2px;padding:22px 26px;background:var(--panel);}
@@ -177,10 +186,33 @@
   .copybtn.copied{color:var(--green);border-color:var(--green-dim);}
   .more{color:var(--muted);font-size:12.5px;white-space:nowrap;cursor:pointer;}
   .tg-btn{flex:1;text-align:center;background:var(--green);color:#06170d;padding:11px;border-radius:3px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
-  @media(max-width:760px){
-    .card-top{flex-direction:column;align-items:flex-start;gap:14px;}
-    .metrics{width:100%;justify-content:space-between;gap:8px;}
-    .rate{align-self:flex-start;}
+  @media(max-width:700px){
+    .wrap{padding:0 14px;}
+    .page{padding:24px 14px 40px;}
+    .grid{gap:10px;}
+    .card{padding:12px 14px;}
+    .card-top{flex-direction:column;align-items:stretch;gap:8px;margin-bottom:8px;}
+    .bank{flex:0 0 auto;min-width:0;gap:8px;}
+    .badge{width:40px;height:40px;font-size:10px;border-radius:6px;}
+    .cardname{font-size:12.5px;line-height:1.25;}
+    .bankname{font-size:10px;margin-top:1px;}
+    .fintag{font-size:9px;padding:2px 6px;margin-top:5px;}
+    .metrics{
+      flex:0 0 auto;width:100%;padding:0;
+      display:grid;grid-template-columns:1fr 1fr;
+      row-gap:6px;column-gap:8px;
+    }
+    .metrics div{text-align:left;min-width:0;font-size:11px;}
+    .metrics .k{font-size:8.5px;margin-top:1px;}
+    .rate{align-self:flex-start;flex:0 0 auto;text-align:left;}
+    .rate .lbl{justify-content:flex-start;font-size:9px;}
+    .rate .val{font-size:16px;}
+    .rows-label{font-size:10px;padding-top:8px;margin-bottom:4px;}
+    .rows{margin-bottom:6px;}
+    .row{font-size:11px;padding:3px 0;}
+    .target{font-size:10.5px;padding:6px 8px;margin-bottom:8px;}
+    .card-actions{flex-direction:column;gap:6px;}
+    .getlink,.copybtn,.tg-btn{flex:1 1 100%;width:100%;padding:9px;font-size:11.5px;}
   }
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);}
@@ -276,7 +308,7 @@
   <div class="wrap">
     <h2>&gt; РЕГИСТРАЦИЯ ИП</h2>
     <p class="lede">Регистрация ИП через банк-партнёра с открытием счёта.</p>
-    <div class="grid" id="ip-grid" style="grid-template-columns:1fr;max-width:700px;"></div>
+    <div class="grid" id="ip-grid"></div>
   </div>
 </div>
 
@@ -285,7 +317,7 @@
   <div class="wrap">
     <h2>&gt; ПОДПИСКИ</h2>
     <p class="lede">Платные подписки банков с бонусом за оформление.</p>
-    <div class="grid" id="subs-grid" style="grid-template-columns:1fr;max-width:700px;"></div>
+    <div class="grid" id="subs-grid"></div>
   </div>
 </div>
 
